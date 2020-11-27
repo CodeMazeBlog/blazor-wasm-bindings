@@ -1,0 +1,19 @@
+﻿@page "/two-way-binding"
+
+<h3>@Title</h3>
+
+Enter the title: 
+<input type="text" class="form-control" @bind="Title" @bind:event="oninput" />
+
+<br />
+Date value:
+<input type="text" class="form-control" @bind="Date" @bind:format="dd-MM-yyyy" />
+
+<hr />
+
+<ChildTwoWayBinding @bind-MainTitle="Title" @bind-MainTitle:event="MainTitleChanged"/>
+
+@code {
+	public string Title { get; set; } = "Two-Way Binding";
+	public DateTime Date { get; set; } = new DateTime(2020, 02, 12);
+}

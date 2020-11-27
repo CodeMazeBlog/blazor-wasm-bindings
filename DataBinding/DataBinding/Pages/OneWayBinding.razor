@@ -1,0 +1,15 @@
+﻿@page "/one-way-binding"
+
+<h3>@Title</h3>
+
+<button type="button" class="btn btn-info" @onclick="ModifyTitle">Modify Title</button>
+
+<hr />
+
+<ChildOneWayBinding MainTitle="@Title" />
+
+@code {
+	public string Title { get; set; } = "One-Way Binding";
+
+	private void ModifyTitle() => Title = "One-Way Binding Modified";
+}

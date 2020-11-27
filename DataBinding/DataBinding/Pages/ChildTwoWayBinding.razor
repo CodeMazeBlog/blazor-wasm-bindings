@@ -1,0 +1,14 @@
+﻿Main Title in a child component:
+<h3>@MainTitle</h3>
+
+Enter the title:
+<input type="text" class="form-control" @bind="MainTitle" @bind:event="oninput" @onkeyup="ModifyMainTitle" />
+
+@code {
+	[Parameter]
+	public string MainTitle { get; set; }
+	[Parameter]
+	public EventCallback<string> MainTitleChanged { get; set; }
+
+	private async Task ModifyMainTitle() => await MainTitleChanged.InvokeAsync(MainTitle);
+}
